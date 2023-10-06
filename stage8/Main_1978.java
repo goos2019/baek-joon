@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 /**
  * [소수 찾기]
  * 1. 주어진 수 N개 중에서 소수가 몇 개인지 찾아서 출력
- *
  * [input]
  * 1. 첫줄에 줄의 개수 N이 주어짐 다음으로 N개의 수가 주어짐
  */
