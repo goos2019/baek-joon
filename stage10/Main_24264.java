@@ -34,7 +34,7 @@ public class Main_24264 {
 //            sum = m.MenOfPassion(A, n);
 
             System.out.println(n * n);
-            System.out.println(1);
+            System.out.println(2);
 
         } catch(Exception e) {
 
