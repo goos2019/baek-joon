@@ -25,7 +25,7 @@ public class Main_24264 {
         try {
             // MenOfPassion는 이중 for문으로 인해 입력 값에 제곱만큼 진행
             // 복잡도는 n^2이므로 2차항이며 최고차항의 차수는 2
-            int n = Integer.parseInt(br.readLine());
+            long n = Long.parseLong(br.readLine());
 
 //            int[] A = new int[n];
 //            int sum = 0;
@@ -33,7 +33,7 @@ public class Main_24264 {
 //            Main_24264 m = new Main_24264();
 //            sum = m.MenOfPassion(A, n);
 
-            System.out.println(Math.pow(n, 2));
+            System.out.println(n * n);
             System.out.println(1);
 
         } catch(Exception e) {
