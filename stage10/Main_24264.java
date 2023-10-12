@@ -27,11 +27,11 @@ public class Main_24264 {
             // 복잡도는 n^2이므로 2차항이며 최고차항의 차수는 2
             int n = Integer.parseInt(br.readLine());
 
-            int[] A = new int[n];
-            int sum = 0;
-
-            Main_24264 m = new Main_24264();
-            sum = m.MenOfPassion(A, n);
+//            int[] A = new int[n];
+//            int sum = 0;
+//
+//            Main_24264 m = new Main_24264();
+//            sum = m.MenOfPassion(A, n);
 
             System.out.println(Math.pow(n, 2));
             System.out.println(1);
@@ -41,14 +41,14 @@ public class Main_24264 {
         }
     }
 
-    int MenOfPassion(int A[], int n) {
-        int sum = 0;
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
-                sum += A[i] + A[j];
-            }
-
-        }
-        return sum;
-    }
+//    int MenOfPassion(int A[], int n) {
+//        int sum = 0;
+//        for(int i = 0; i < n; i++) {
+//            for(int j = 0; j < n; j++) {
+//                sum += A[i] + A[j];
+//            }
+//
+//        }
+//        return sum;
+//    }
 }
