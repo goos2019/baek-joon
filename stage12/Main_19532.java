@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 /**
  * [수학은 비대면강의입니다]
  * 1. 연립방정식 x, y 값을 계산
- * 2. ax + by = c / dx + ex = f
+ * 2. ax + by = c / dx + ey = f
  * [입력]
  * 1. a, b, c, d, e, f 가 공백으로 주어짐 -999 ≤ a, b, c, d, e, f ≤ 999
  * 2. x, y가 유일하고 -999이상 999이하의 정수민 경우만 주어짐
@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 public class Main_19532 {
     public static void main(String[] args) {
 
-        // n개 중 중복되지 않는 경우를 찾아서 최대 수를 입력
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         try {
