@@ -35,20 +35,31 @@ public class Main_1436 {
 
         try {
 
-            short count = (short)Integer.parseInt(br.readLine());
-            int nth = 665;
+            short N = (short)Integer.parseInt(br.readLine());
+            short count = 0;
+            int num = 666;
+            int pre_digit = 0;
+            int pre_exp = 0;
+            int post_digit = 0;
+            int post_exp = 0;
 
             while(true) {
-                if(count == 0) break;
 
-                nth += 1;
+                if(pre_digit%10 == 0) {
+                    pre_exp += 1;
+                }
 
-                String temp = Integer.toString(nth);
-                if(temp.contains("666")) {
-                    count -= 1;
+                if((pre_digit/Math.pow(10, pre_exp))%10 == 6) {
+
+                } else {
+                    ++pre_digit;
+                }
+
+                if(String.valueOf(num).contains("666")) {
+                    ++count;
                 }
             }
-            System.out.println(nth);
+
         } catch(Exception e) {
 
         }
