@@ -18,31 +18,61 @@ public class Main_10828 {
 
                 if(data[0].equals("push")) {
 
-                    top += 1;
-                    int[] temp = new int[top];
+                    int[] temp = new int[top + 1];
 
-                    for(int j = 0; j < top; j++) {
-                        temp[j] = stack[j];
+                    if(top != 0) {
+                        for(int j = 0; j < top; j++) {
+                            temp[j] = stack[j];
+                        }
+                        temp[top] = Integer.parseInt(data[1]);
+                    } else {
+                        temp[0] = Integer.parseInt(data[1]);
                     }
 
-                    temp[top] = Integer.parseInt(data[1]);
+                    stack = temp;
+                    top += 1;
+
                 } else if(data[0].equals("pop")) {
 
-
-
-                    if(top - 1 <= 0) {
+                    if(top <= 0) {
                         System.out.println(-1);
+                    } else {
+                        System.out.println(stack[top - 1]);
+
+                        top -= 1;
+
+                        int[] temp = new int[top];
+
+                        for(int j = 0; j < top; j++) {
+                            temp[j] = stack[j];
+                        }
+
+                        stack = temp;
                     }
 
                 } else if(data[0].equals("size")) {
 
+                    System.out.println(stack.length);
+
                 } else if(data[0].equals("empty")) {
 
+                    if(top <= 0) {
+                        System.out.println(1);
+                    } else {
+                        System.out.println(0);
+                    }
                 } else if(data[0].equals("top")) {
+
+                    if(top <= 0) {
+                        System.out.println(-1);
+                    } else {
+                        System.out.println(stack[top - 1]);
+                    }
 
                 }
             }
         } catch(Exception e) {
+            e.printStackTrace();
         }
     }
 }
