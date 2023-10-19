@@ -2,6 +2,7 @@ package codePlus200;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Stack;
 
 public class Main_10828 {
     public static void main(String[] args) {
@@ -10,65 +11,34 @@ public class Main_10828 {
 
         try {
             int repeat = Integer.parseInt(br.readLine());
-            int[] stack = new int[0];
-            int top = 0;
+            Stack<Integer> stack = new Stack<>();
 
             for(int i = 0; i < repeat; i++) {
                 String[] data = br.readLine().split(" ");
 
                 if(data[0].equals("push")) {
-
-                    int[] temp = new int[top + 1];
-
-                    if(top != 0) {
-                        for(int j = 0; j < top; j++) {
-                            temp[j] = stack[j];
-                        }
-                        temp[top] = Integer.parseInt(data[1]);
-                    } else {
-                        temp[0] = Integer.parseInt(data[1]);
-                    }
-
-                    stack = temp;
-                    top += 1;
-
+                    stack.push(Integer.parseInt(data[1]));
                 } else if(data[0].equals("pop")) {
-
-                    if(top <= 0) {
+                    if(stack.empty()) {
                         System.out.println(-1);
                     } else {
-                        System.out.println(stack[top - 1]);
-
-                        top -= 1;
-
-                        int[] temp = new int[top];
-
-                        for(int j = 0; j < top; j++) {
-                            temp[j] = stack[j];
-                        }
-
-                        stack = temp;
+                        System.out.println(stack.peek());
+                        stack.pop();
                     }
-
                 } else if(data[0].equals("size")) {
-
-                    System.out.println(stack.length);
-
+                    System.out.println(stack.size());
                 } else if(data[0].equals("empty")) {
-
-                    if(top <= 0) {
+                    if(stack.empty()) {
                         System.out.println(1);
                     } else {
                         System.out.println(0);
                     }
                 } else if(data[0].equals("top")) {
-
-                    if(top <= 0) {
+                    if(stack.empty()) {
                         System.out.println(-1);
                     } else {
-                        System.out.println(stack[top - 1]);
+                        System.out.println(stack.peek());
                     }
-
                 }
             }
         } catch(Exception e) {
