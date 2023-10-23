@@ -25,24 +25,23 @@ public class Main_12789 {
                 line.offer(Integer.parseInt(s));
             }
 
-            while(line.isEmpty()) {
-                if(line.peek() == currentOrder) {
+            while(true) {
+                if(!line.isEmpty() && line.peek() == currentOrder) { // 메인 복도 확인
                     line.poll();
                     currentOrder++;
-                } else if(backUpLine.peek() == currentOrder){
+                } else if(!backUpLine.isEmpty() && backUpLine.peek() == currentOrder){ // 서브 복도 확인
                     backUpLine.pop();
                     currentOrder++;
+                } else if(line.isEmpty() && backUpLine.isEmpty()) { // 전체 복도 없음(클리어)
+                    System.out.println("Nice");
+                    break;
+                } else if(line.isEmpty() && backUpLine.peek() != currentOrder) { // 불가능
+                    System.out.println("Sad");
+                    break;
                 } else {
                     backUpLine.push(line.poll());
                 }
             }
-
-            if(line.isEmpty() && backUpLine.isEmpty()) {
-                System.out.println("Nice");
-            } else {
-                System.out.println("Sad");
-            }
-
         } catch(Exception e) {
             e.printStackTrace();
         }
