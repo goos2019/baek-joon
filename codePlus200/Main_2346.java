@@ -9,44 +9,60 @@ public class Main_2346 {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-        LinkedList<Integer> list = new LinkedList<>();
 
         try {
             int count = Integer.parseInt(br.readLine());
+            int[] list = new int[count];
             String[] data = br.readLine().split(" ");
 
             for(int i = 0; i < count; i++) {
-                list.add(Integer.parseInt(data[i]));
+                list[i] = Integer.parseInt(data[i]);
             }
 
-            int idx = list.getFirst();
+            int idx = list[0];
             int position = 0;
-            list.remove(0);
+            list[0] = 9999;
             sb.append(1).append(" ");
 
-            while(!list.isEmpty()) {
-
-                int max = list.size();
-                int realIdx = Math.abs(idx)%max;
+            for(int i = 0; i < (count - 1); i++) {
 
                 if(idx <= 0) {
-                    if(position - realIdx < 0) {
-                        position = max - realIdx;
-                    } else {
-                        position = position - realIdx;
+
+                    while(idx != 0) {
+
+                        if(position == 0) {
+                            position = list.length - 1;
+                        } else {
+                            position--;
+                        }
+
+                        if(list[position] != 9999) {
+                            idx++;
+                        }
                     }
-                    idx = list.get(position);
-                    list.remove(position);
+
+                    idx = list[position];
+                    list[position] = 9999;
                     sb.append(position + 1).append(" ");
                 } else {
-                    if(position + realIdx >= max) {
-                        position = (position + realIdx)%max;
-                    } else {
-                        position = position + realIdx;
+
+                    while(idx != 0) {
+
+                        if(position == (list.length - 1)) {
+                            position = 0;
+                        } else {
+                            position++;
+                        }
+
+                        if(list[position] != 9999) {
+                            idx--;
+                        }
                     }
-                    idx = list.get(position);
-                    list.remove(position);
+
+                    idx = list[position];
+                    list[position] = 9999;
                     sb.append(position + 1).append(" ");
+
                 }
             }
 
