@@ -21,8 +21,12 @@ public class Main_11650 {
                 multi[i][1] = Integer.parseInt(axis[1]);
             }
 
-            Arrays.sort(multi, Comparator.comparingInt(o -> o[0]));
-            Arrays.sort(multi, Comparator.comparingInt(o -> o[1]));
+            Arrays.sort(multi, new Comparator<int[]>() {
+                @Override
+                public int compare(int[] o1, int[] o2) {
+                    return o1[0] != o2[0]? o1[0]-o2[0] : o1[1]-o2[1];
+                }
+            });
 
             for (int[] ints : multi) {
                 sb.append(ints[0]).append(" ").append(ints[1]).append('\n');
