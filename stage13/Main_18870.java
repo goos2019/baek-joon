@@ -16,26 +16,27 @@ public class Main_18870 {
         try {
             int count = Integer.parseInt(br.readLine());
             String[] data = br.readLine().split(" ");
-            String[] origin = data.clone();
+            int[] list = new int[count];
+            int[] origin = new int[count];
             Map<Integer, Integer> order = new HashMap<>();
 
-            Arrays.sort(data, new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    return Integer.parseInt(o1) - Integer.parseInt(o2);
-                }
-            });
+            for(int i = 0; i < data.length; i++) {
+                list[i] = Integer.parseInt(data[i]);
+                origin[i] = Integer.parseInt(data[i]);
+            }
+
+            Arrays.sort(list);
 
             int orderNumber = 0;
-            for(String str: data) {
-                if(order.get(Integer.parseInt(str)) == null) {
-                    order.put(Integer.parseInt(str), orderNumber);
+            for(int value: list) {
+                if(order.get(value) == null) {
+                    order.put(value, orderNumber);
                     orderNumber++;
                 }
             }
 
-            for(String str: origin) {
-                sb.append(order.get(Integer.parseInt(str))).append(" ");
+            for(int value: origin) {
+                sb.append(order.get(value)).append(" ");
             }
 
             System.out.println(sb);
