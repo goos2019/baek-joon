@@ -20,13 +20,22 @@ public class Main_7785 {
                 log.put(data[0], data[1]);
             }
 
-            for(String str: log.keySet()) {
+            ArrayList<String> keySet = new ArrayList<>(log.keySet());
+
+            keySet.sort(new Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return o2.compareTo(o1);
+                }
+            });
+
+            for(String str: keySet) {
                 if(log.get(str).equals("enter")) {
                     sb.append(str).append('\n');
                 }
             }
 
-            System.out.println(sb);
+            System.out.print(sb);
 
         } catch(Exception e) {
             e.printStackTrace();
