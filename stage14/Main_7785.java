@@ -17,7 +17,8 @@ public class Main_7785 {
 
             for(int i = 0; i < n; i++) {
                 String[] data = br.readLine().split(" ");
-                if(!log.contains(data[0])) {
+                if(data[1].equals("enter")) {
+                    log.remove(data[0]);
                     log.add(data[0]);
                 } else if(data[1].equals("leave")) {
                     log.remove(data[0]);
