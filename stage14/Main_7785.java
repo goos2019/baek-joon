@@ -13,27 +13,17 @@ public class Main_7785 {
 
         try {
             int n = Integer.parseInt(br.readLine());
-            ArrayList<String> log = new ArrayList<>();
+            Map<String, String> log = new HashMap<>();
 
             for(int i = 0; i < n; i++) {
                 String[] data = br.readLine().split(" ");
-                if(data[1].equals("enter")) {
-                    log.remove(data[0]);
-                    log.add(data[0]);
-                } else if(data[1].equals("leave")) {
-                    log.remove(data[0]);
-                }
+                log.put(data[0], data[1]);
             }
 
-            log.sort(new Comparator<String>() {
-                @Override
-                public int compare(String o1, String o2) {
-                    return o1.charAt(0) - o2.charAt(0);
+            for(String str: log.keySet()) {
+                if(log.get(str).equals("enter")) {
+                    sb.append(str).append('\n');
                 }
-            });
-
-            for(String str: log) {
-                sb.append(str).append('\n');
             }
 
             System.out.println(sb);
