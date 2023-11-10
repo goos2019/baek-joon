@@ -16,6 +16,7 @@ public class Main_1764 {
             int N = Integer.parseInt(NM[0]);
             int M = Integer.parseInt(NM[1]);
             Map<String, Integer> list = new HashMap<>();
+            ArrayList<String> member = new ArrayList<>();
 
             for(int i = 0; i < N; i++) {
                 list.put(br.readLine(), 0);
@@ -23,23 +24,10 @@ public class Main_1764 {
 
             for(int i = 0; i < M; i++) {
                 String longTimeNoSee = br.readLine();
-                if(list.get(longTimeNoSee) == null) {
-                    list.remove(longTimeNoSee);
-                } else {
-                    int count = list.get(longTimeNoSee);
-                    list.put(longTimeNoSee, ++count);
+                if(list.get(longTimeNoSee) != null) {
+                    member.add(longTimeNoSee);
                 }
             }
-
-            ArrayList<String> member = new ArrayList<>(list.keySet());
-
-            for(String name: member) {
-                if(list.get(name) == 0) {
-                    list.remove(name);
-                }
-            }
-
-            member = new ArrayList<>(list.keySet());
 
             member.sort(new Comparator<String>() {
                 @Override
@@ -49,7 +37,6 @@ public class Main_1764 {
             });
 
             sb.append(member.size()).append('\n');
-
             for(String name: member) {
                 sb.append(name).append('\n');
             }
