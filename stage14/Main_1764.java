@@ -37,6 +37,7 @@ public class Main_1764 {
             });
 
             sb.append(member.size()).append('\n');
+
             for(String name: member) {
                 sb.append(name).append('\n');
             }
