@@ -15,26 +15,21 @@ public class Main_1269 {
             int A = Integer.parseInt(AB[0]);
             int B = Integer.parseInt(AB[1]);
 
-            Set<Integer> aData = new HashSet<>();
-            Set<Integer> bData = new HashSet<>();
+            Set<Integer> data = new HashSet<>();
 
-            for (String data : br.readLine().split(" ")) {
-                aData.add(Integer.parseInt(data));
-            }
-
-            for (String data : br.readLine().split(" ")) {
-                bData.add(Integer.parseInt(data));
+            for (String value : br.readLine().split(" ")) {
+                data.add(Integer.parseInt(value));
             }
 
             int count = 0;
 
-            for (int value : aData) {
-                if (aData.contains(value)) {
+            for (String value : br.readLine().split(" ")) {
+                if (data.contains(Integer.parseInt(value))) {
                     ++count;
                 }
             }
 
-            System.out.println(aData.size() + bData.size() - (count * 2));
+            System.out.println(A + B - (count * 2));
 
         } catch (Exception e) {
             e.printStackTrace();
