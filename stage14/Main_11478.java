@@ -12,25 +12,12 @@ public class Main_11478 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            String[] data = br.readLine().split("");
+            String data = br.readLine();
             Set<String> list = new HashSet<>();
 
-            for(int i = 0; i < data.length; i++) {
-
-                int start = 0;
-                int last = start + i;
-
-                while(last < data.length) {
-
-                    StringBuilder str = new StringBuilder();
-
-                    for(int s = start; s <= last; s++) {
-                        str.append(data[s]);
-                    }
-
-                    list.add(str.toString());
-                    start++;
-                    last++;
+            for(int i = 0; i < data.length(); i++) {
+                for(int j = i + 1; j <= data.length(); j++) {
+                    list.add(data.substring(i, j));
                 }
             }
 
