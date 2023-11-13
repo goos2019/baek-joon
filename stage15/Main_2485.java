@@ -33,10 +33,10 @@ public class Main_2485 {
                 }
             }
 
-            System.out.println((int)Math.ceil(last/(gcd*1.0)) - count - (int)Math.ceil((first - gcd)/(gcd*1.0)));
+            System.out.println((last - first)/gcd - count + 1);
 
         } catch(Exception e) {
-
+            e.printStackTrace();
         }
     }
 
