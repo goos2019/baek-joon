@@ -12,22 +12,14 @@ public class Main_4134 {
 
         try {
             int count = Integer.parseInt(br.readLine());
-            long[] list = new long[count];
+            long target;
+            long value;
 
             for(int i = 0; i < count; i++) {
-                list[i] = Long.parseLong(br.readLine());
-            }
 
-            long target = 0;
-
-            for(long value: list) {
-
-                if(value < target) {
-                    sb.append(target).append('\n');
-                } else {
-                    target = search(value);
-                    sb.append(target).append('\n');
-                }
+                value = Long.parseLong(br.readLine());
+                target = search(value);
+                sb.append(target).append('\n');
             }
 
             System.out.println(sb);
