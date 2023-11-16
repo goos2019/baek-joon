@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 public class Main_17103 {
 
-    static boolean[] prime;
+    static int MAX = 1000001;
+    static ArrayList<Integer> primeList = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -15,56 +16,49 @@ public class Main_17103 {
 
         try {
             int testCase = Integer.parseInt(br.readLine());
-            int[] caseArray = new int[testCase];
+            setPrime();
 
-            int max = 0;
             for(int i = 0; i < testCase; i++) {
                 int data = Integer.parseInt(br.readLine());
-                if(data > max) max = data;
-                caseArray[i] = data;
+                System.out.println(getGold(data));
             }
-
-            prime = getPrime(max);
-
-            for(int value: caseArray) {
-                sb.append(getGold(value)).append('\n');
-            }
-
-            System.out.println(sb);
 
         } catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    static boolean[] getPrime(int max) {
-        boolean[] prime = new boolean[max];
+    static void setPrime() {
+        boolean[] prime = new boolean[MAX];
         prime[1] = true;
-        for(int i = 2; i < Math.sqrt(max); i++) {
-            for(int j = 2; i*j < max; j++) {
+        for(int i = 2; i < Math.sqrt(MAX); i++) {
+            for(int j = 2; i*j < MAX; j++) {
                 if(!prime[i*j]) prime[i*j] = true;
             }
         }
-        return prime;
+
+        for(int i = 2; i < MAX; i++) {
+            if(!prime[i]) primeList.add(i);
+        }
+
     }
 
     static int getGold(int value) {
 
         int count = 0;
+        int max = 0;
 
-        ArrayList<Integer> primeList = new ArrayList<>();
-
-        for(int i = 2; i < value; i++) {
-            if(!prime[i]) primeList.add(i);
+        for(int i = 0; i < primeList.size(); i++) {
+            if(primeList.get(i) > value) {
+                max = i;
+                break;
+            }
         }
 
-        for(int firstN : primeList) {
-            if((firstN*2) > value) continue;
-            for(int secondN : primeList) {
-                if((firstN + secondN) > value) {
-                    break;
-                } else if((firstN + secondN) == value) {
-                    ++count;
+        for(int i = 0; i < max; i++) {
+            for(int j = max; j >= i; j--) {
+                if(primeList.get(i) + primeList.get(j) == value) {
+                    count++;
                 }
             }
         }
