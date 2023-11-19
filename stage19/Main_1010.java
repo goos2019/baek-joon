@@ -29,6 +29,7 @@ public class Main_1010 {
     static long comb(int A, int B) {
 
         int N, K;
+        boolean[] listN, listK;
 
         if(A > B) {
             N = A;
@@ -38,15 +39,30 @@ public class Main_1010 {
             K = A;
         }
 
+        listN = new boolean[N + 1];
+        listK = new boolean[N + 1];
+
         long num1 = 1;
         long num2 = 1;
 
         for(int i = N; i > (N - K); i--) {
-            num1 *= i;
+            listN[i] = true;
         }
 
         for(int i = 1; i <= K; i++) {
-            num2 *= i;
+            listK[i] = true;
+        }
+
+        for(int i = 1; i <= N; i++) {
+            if(listN[i] == listK[i]) {
+                listN[i] = false;
+                listK[i] = false;
+            }
+        }
+
+        for(int i = 1; i <= N; i++) {
+            if(listN[i]) num1 *= i;
+            if(listK[i]) num2 *= i;
         }
 
         return num1/num2;
