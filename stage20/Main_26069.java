@@ -19,17 +19,25 @@ public class Main_26069 {
                 String[] meet = br.readLine().split(" ");
 
                 if(meet[0].equals("ChongChong")) {
-                    set.add(meet[1]);
-                    dance++;
+                    if(!set.contains(meet[1])) {
+                        set.add(meet[1]);
+                        dance++;
+                    }
                 } else if(meet[1].equals("ChongChong")) {
-                    set.add(meet[0]);
-                    dance++;
+                    if(!set.contains(meet[0])) {
+                        set.add(meet[0]);
+                        dance++;
+                    }
                 } else if(set.contains(meet[0])) {
-                    set.add(meet[1]);
-                    dance++;
+                    if(!set.contains(meet[1])) {
+                        set.add(meet[1]);
+                        dance++;
+                    }
                 } else if(set.contains(meet[1])) {
-                    set.add(meet[0]);
-                    dance++;
+                    if(!set.contains(meet[0])) {
+                        set.add(meet[0]);
+                        dance++;
+                    }
                 }
             }
 
