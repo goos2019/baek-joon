@@ -18,7 +18,10 @@ public class Main_25192 {
 
             for(int i = 0; i < count; i++) {
                 String name = br.readLine();
-                if(!name.equals("ENTER") && !set.contains(name)) {
+
+                if(name.equals("ENTER")) {
+                    set.clear();
+                } else if(!set.contains(name)) {
                     gomgom++;
                     set.add(name);
                 }
