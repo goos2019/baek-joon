@@ -9,7 +9,6 @@ public class Main_2108 {
     public static void main(String[] args) {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
 
         try {
             int count = Integer.parseInt(br.readLine());
@@ -25,7 +24,7 @@ public class Main_2108 {
                 data[i] = value;
                 if(!map.containsKey(value)) {
                     map.put(value, 1);
-                    if(1 > freq) {
+                    if(1 >= freq) {
                         freq = 1;
                         list.add(value);
                     }
@@ -36,7 +35,7 @@ public class Main_2108 {
                         freq = getCount;
                         list.clear();
                         list.add(value);
-                    } else {
+                    } else if(getCount == freq){
                         list.add(value);
                     }
                 }
@@ -46,12 +45,7 @@ public class Main_2108 {
             Collections.sort(list);
 
             System.out.println((int)Math.round(sum/count));
-
-            if(data.length%2 == 0) {
-                System.out.println((int)Math.round((data[data.length/2] + data[data.length/2 - 1])/2.0));
-            } else {
-                System.out.println(data[data.length/2]);
-            }
+            System.out.println(data[data.length/2]);
 
             if(list.size() > 1) {
                 System.out.println(list.get(1));
