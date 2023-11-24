@@ -1,7 +1,6 @@
 package stage20;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class Main_20920 {
@@ -9,7 +8,7 @@ public class Main_20920 {
     public static void main(String[] args) {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder sb = new StringBuilder();
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 
         try {
             String[] NM = br.readLine().split(" ");
@@ -45,9 +44,10 @@ public class Main_20920 {
             });
 
             for(String key: keySet) {
-                sb.append(key).append('\n');
+                writer.write(key);
+                writer.newLine();
             }
-            System.out.println(sb);
+            writer.flush();
         } catch(Exception e) {
             e.printStackTrace();
         }
