@@ -14,8 +14,8 @@ public class Main_25501 {
             int T = Integer.parseInt(br.readLine());
 
             for(int i = 0; i < T; i++) {
-                String[] data = br.readLine().split("");
-                int[] result = recursion(data, 0, data.length - 1);
+                String data = br.readLine();
+                int[] result = recursion(data, 0, data.length() - 1);
                 sb.append(result[0]).append(" ").append(result[1]).append('\n');
             }
 
@@ -25,10 +25,10 @@ public class Main_25501 {
         }
     }
 
-    static int[] recursion(String[] data, int left, int right) {
+    static int[] recursion(String data, int left, int right) {
         if(left >= right) {
             return new int[]{1, ++left};
-        } else if(!data[left].equals(data[right])) {
+        } else if(data.charAt(left) != data.charAt(right)) {
             return new int[]{0, ++left};
         } else {
             return recursion(data, ++left, --right);
