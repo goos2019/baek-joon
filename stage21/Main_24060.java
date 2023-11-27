@@ -5,6 +5,7 @@ import java.io.*;
 public class Main_24060 {
 
     static int[] A;
+    static int[] tmp;
     static int count = 0;
 
     public static void main(String[] args) {
@@ -18,12 +19,15 @@ public class Main_24060 {
             int K = Integer.parseInt(NK[1]);
             count = K;
             A = new int[N];
+            tmp = new int[N];
 
             for(int i = 0; i < N; i++) {
                 A[i] = Integer.parseInt(data[i]);
             }
 
             merge_sort(0, N - 1);
+
+            if(count > 0) System.out.println(-1);
 
         } catch(Exception e) {
             e.printStackTrace();
@@ -43,27 +47,30 @@ public class Main_24060 {
         int i = p;
         int j = q + 1;
         int t = 0;
-        int[] tmp = new int[A.length];
-
-        while(i <= q && j <= r) {
-            if(A[i] <= A[j]) {
+        if(count > 0) {
+            while(i <= q && j <= r) {
+                if(A[i] <= A[j]) {
+                    tmp[t++] = A[i++];
+                } else {
+                    tmp[t++] = A[j++];
+                }
+            }
+            while(i <= q) {
                 tmp[t++] = A[i++];
-            } else {
+            }
+            while(j <= r) {
                 tmp[t++] = A[j++];
             }
-        }
-        while(i <= q) {
-            tmp[t++] = A[i++];
-        }
-        while(j <= r) {
-            tmp[t++] = A[j++];
-        }
-        i = p;
-        t = 0;
-        while(i <= r) {
-            --count;
-            if(count == 0) System.out.println(tmp[t]);
-            A[i++] = tmp[t++];
+            i = p;
+            t = 0;
+            while(i <= r) {
+                --count;
+                if(count == 0) {
+                    System.out.println(tmp[t]);
+                    break;
+                }
+                A[i++] = tmp[t++];
+            }
         }
     }
 }
