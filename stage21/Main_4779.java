@@ -13,10 +13,8 @@ public class Main_4779 {
         StringBuilder sb = new StringBuilder();
 
         try {
-
-            while(true) {
-                String line = br.readLine();
-                if(line.isEmpty()) break;
+            String line;
+            while((line = br.readLine()) != null) {
                 int data = Integer.parseInt(line);
                 int N = (int)Math.pow(3, data);
                 tmp = new int[N];
