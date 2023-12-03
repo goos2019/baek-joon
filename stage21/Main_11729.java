@@ -17,8 +17,7 @@ public class Main_11729 {
 
         try {
             int N = Integer.parseInt(br.readLine());
-            int K = (int)Math.pow(2, N) - 1;
-            sb.append(K).append("\n");
+            sb.append((int)Math.pow(2, N) - 1 + "\n");
             hanoi(N, 1, 2, 3);
             System.out.println(sb);
         } catch(Exception e) {
@@ -28,7 +27,7 @@ public class Main_11729 {
     static void hanoi(int N, int from, int by, int to) {
         if(N == 0) return;
         hanoi(N - 1, from, to, by);
-        sb.append(from).append(" ").append(to).append("\n");
+        sb.append(from + " " + to + "\n");
         hanoi(N - 1, by, from, to);
     }
 }
