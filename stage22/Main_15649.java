@@ -7,6 +7,7 @@ public class Main_15649 {
 
     static int[] valueArray;
     static boolean[] visit;
+    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) {
 
@@ -20,6 +21,7 @@ public class Main_15649 {
             visit = new boolean[N];
             Main_15649 main = new Main_15649();
             main.NM(N, M, 0);
+            System.out.print(sb.toString());
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -29,9 +31,9 @@ public class Main_15649 {
 
         if(depth == M) {
             for(int value : valueArray) {
-                System.out.print(value + " ");
+                sb.append(value).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
             return;
         }
 
