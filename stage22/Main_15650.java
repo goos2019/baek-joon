@@ -17,18 +17,18 @@ public class Main_15650 {
             int N = Integer.parseInt(NM[0]);
             int M = Integer.parseInt(NM[1]);
 
-            visit = new boolean[N];
+            visit = new boolean[N + 1];
             val = new int[M];
 
             Main_15650 main = new Main_15650();
-            main.NM(N, M, 0);
+            main.NM(N, M, 0, 1);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void NM(int N, int M, int depth) {
+    public void NM(int N, int M, int depth, int position) {
 
         if(depth == M) {
             for(int i: val) {
@@ -38,17 +38,10 @@ public class Main_15650 {
             return;
         }
 
-        for(int i = 0; i < N; i++) {
-
-            if(visit[i] == false) {
-
-                visit[i] = true;
-                val[depth] = i + 1;
-                NM(N, M, depth + 1);
-                if(N != M && val[0] < val[depth]) {
-                    visit[i] = false;
-                }
-            }
+        for(int i = position; i <= N; i++) {
+            System.out.println("+");
+            val[depth] = i;
+            NM(N, M, depth + 1, i + 1);
         }
     }
 }
